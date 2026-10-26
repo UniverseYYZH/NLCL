@@ -1,0 +1,10 @@
+# 固定使用 0.28.3：Windows 桌面运行时直接包含在 flet-desktop 包中，
+# 不依赖首次启动时从 GitHub 下载 40MB 的 flet-windows.zip。
+flet==0.28.3
+flet-desktop==0.28.3
+minecraft-launcher-lib==8.0
+# version_downloader 直接使用 requests 获取版本列表、使用 urllib3 统计速度。
+requests>=2.32,<3
+urllib3>=2.0,<3
+segno>=1.6
+Pillow>=10.0

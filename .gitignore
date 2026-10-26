@@ -1,0 +1,17 @@
+.venv/
+.tmp/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+accounts.json
+accounts.json.corrupt-*
+launch_settings.json
+launch_settings.json.tmp
+build/
+dist/
+*.spec
+build.log
+*.log
+.idea/
+*.exe
+*.msi
