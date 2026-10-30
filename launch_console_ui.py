@@ -865,7 +865,7 @@ class LaunchConsoleView:
             self.page.update()
             return
 
-        log_dir = Path(os.environ.get("APPDATA", str(Path.home()))) / "NLCL" / "logs"
+        log_dir = Path(os.environ.get("APPDATA", str(Path.home()))) / "NLMCL" / "logs"
         try:
             log_dir.mkdir(parents=True, exist_ok=True)
             safe_version = "".join(
@@ -873,7 +873,7 @@ class LaunchConsoleView:
                 for char in session.version.version_id
             )
             path = log_dir / (
-                f"NLCL-{safe_version}-{time.strftime('%Y%m%d-%H%M%S')}.log"
+                f"NLMCL-{safe_version}-{time.strftime('%Y%m%d-%H%M%S')}.log"
             )
             path.write_text(text, encoding="utf-8")
             self.footer_status.value = f"日志已导出：{path}"

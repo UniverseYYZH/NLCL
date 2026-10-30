@@ -168,7 +168,7 @@ def import_mrpack(
 
     registry = registry or InstanceRegistry()
     base_root = (
-        Path(os.environ.get("APPDATA", str(Path.home()))) / "NLCL" / "instances"
+        Path(os.environ.get("APPDATA", str(Path.home()))) / "NLMCL" / "instances"
     )
     slug = _slug(info.name or info.path.stem)
     root = base_root / f"{slug}-{int(time.time())}" / ".minecraft"
@@ -193,7 +193,7 @@ def import_mrpack(
         java=java,
     )
 
-    alias = _unique_alias(root, f"NLCL-{slug}")
+    alias = _unique_alias(root, f"NLMCL-{slug}")
     _rename_version(root, installed_id, alias, f"{info.name} {info.version_id}".strip())
     _deploy_files(info, root, progress)
     _extract_overrides(info.path, root, progress)
@@ -305,7 +305,7 @@ def _rename_version(
 
 
 def _unique_alias(root: Path, base: str) -> str:
-    alias = re.sub(r"[^A-Za-z0-9_.-]+", "-", base).strip("-") or "NLCL-instance"
+    alias = re.sub(r"[^A-Za-z0-9_.-]+", "-", base).strip("-") or "NLMCL-instance"
     candidate = alias
     index = 1
     while (root / "versions" / candidate).exists():

@@ -157,7 +157,7 @@ def fetch_vanilla_versions(timeout: float = DOWNLOAD_MANIFEST_TIMEOUT) -> list[V
     response = requests.get(
         MANIFEST_URL,
         timeout=timeout,
-        headers={"User-Agent": "NLCL/0.1"},
+        headers={"User-Agent": "NLMCL/0.1"},
     )
     response.raise_for_status()
     data = response.json()

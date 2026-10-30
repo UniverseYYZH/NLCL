@@ -1,4 +1,4 @@
-"""NLCL 入口：本地 Minecraft 版本扫描与展示（第一阶段模块 1）。
+"""NLMCL 入口：本地 Minecraft 版本扫描与展示（第一阶段模块 1）。
 
 运行：
     .venv\\Scripts\\python.exe main.py
@@ -558,7 +558,7 @@ class VersionBrowser:
                 pass
 
     def _configure_page(self) -> None:
-        self.page.title = "NLCL · 本地版本"
+        self.page.title = "NLMCL · 本地版本"
         self.page.padding = 0
         self.page.bgcolor = BG
         self.page.theme_mode = theme_mode(self.theme_store.name)
@@ -654,7 +654,7 @@ class VersionBrowser:
                 ft.Column(
                     controls=[
                         ft.Text(
-                            "NLCL",
+                            "NLMCL",
                             size=20,
                             weight=ft.FontWeight.W_700,
                             color=SIDEBAR_TEXT,

@@ -11,7 +11,7 @@ from pathlib import Path
 def default_app_settings_path() -> Path:
     base = os.environ.get("APPDATA")
     root = Path(base) if base else Path.home() / "AppData" / "Roaming"
-    return root / "NLCL" / "app_settings.json"
+    return root / "NLMCL" / "app_settings.json"
 
 
 @dataclass(slots=True)

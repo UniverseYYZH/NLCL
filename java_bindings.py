@@ -10,7 +10,7 @@ from pathlib import Path
 def default_binding_file() -> Path:
     base = os.environ.get("APPDATA")
     root = Path(base) if base else Path.home() / "AppData" / "Roaming"
-    return root / "NLCL" / "instance_java.json"
+    return root / "NLMCL" / "instance_java.json"
 
 
 class JavaBindingStore:

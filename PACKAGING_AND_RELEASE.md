@@ -1,4 +1,4 @@
-# NLCL 打包与 GitHub 发布傻瓜教程
+# NLMCL 打包与 GitHub 发布傻瓜教程
 
 > 这份文档写给不熟悉 Git、GitHub、PyInstaller 的人。
 > 你只需要按顺序做，不需要理解每条命令。
@@ -13,9 +13,9 @@
 打包成功后：
 
 ```text
-D:\Users\zyh\Desktop\NLCL\
+D:\Users\zyh\Desktop\NLMCL\
 ├─ dist\
-│  └─ NLCL.exe          ← 最终单文件程序，发给别人只需要这个
+│  └─ NLMCL.exe          ← 最终单文件程序，发给别人只需要这个
 ├─ build\               ← 打包临时目录，可删除
 ├─ 一键打包.bat          ← 双击即可重新打包
 ├─ build.bat            ← 真正执行打包的脚本
@@ -26,7 +26,7 @@ D:\Users\zyh\Desktop\NLCL\
 └─ ...
 ```
 
-`NLCL.exe` 是 **Windows 单文件 exe**：
+`NLMCL.exe` 是 **Windows 单文件 exe**：
 
 - 双击运行，不弹黑色控制台；
 - 已嵌入 `assets` 资源；
@@ -36,7 +36,7 @@ D:\Users\zyh\Desktop\NLCL\
 
 本次已经实际完成一次打包并启动验证：
 
-- 文件：`dist\NLCL.exe`
+- 文件：`dist\NLMCL.exe`
 - 大小约 90 MB
 - 已用离线账号验证默认史蒂夫头像从 exe 内资源读取成功
 - `dist\SHA256.txt` 保存了校验值，可以一起上传到 Release
@@ -70,7 +70,7 @@ python --version
 当前路径：
 
 ```text
-D:\Users\zyh\Desktop\NLCL
+D:\Users\zyh\Desktop\NLMCL
 ```
 
 可以使用，但**不要**放到 `C:\Program Files` 这类需要管理员权限的目录。
@@ -98,7 +98,7 @@ assets\steve.png
 在文件资源管理器打开：
 
 ```text
-D:\Users\zyh\Desktop\NLCL
+D:\Users\zyh\Desktop\NLMCL
 ```
 
 ### 第 2 步：双击
@@ -128,7 +128,7 @@ D:\Users\zyh\Desktop\NLCL
 
 ```text
 BUILD SUCCESS
-EXE: D:\Users\zyh\Desktop\NLCL\dist\NLCL.exe
+EXE: D:\Users\zyh\Desktop\NLMCL\dist\NLMCL.exe
 ```
 
 说明成功。
@@ -138,10 +138,10 @@ EXE: D:\Users\zyh\Desktop\NLCL\dist\NLCL.exe
 打开：
 
 ```text
-D:\Users\zyh\Desktop\NLCL\dist
+D:\Users\zyh\Desktop\NLMCL\dist
 ```
 
-双击 `NLCL.exe`。
+双击 `NLMCL.exe`。
 
 第一次启动会比平时慢几秒，这是单文件 exe 的正常现象。
 
@@ -160,7 +160,7 @@ D:\Users\zyh\Desktop\NLCL\dist
 
 ```bat
 .venv\Scripts\flet.exe pack main.py ^
-  --name NLCL ^
+  --name NLMCL ^
   --icon assets\app.ico ^
   --add-data "assets;assets" ^
   --hidden-import PIL ^
@@ -226,7 +226,7 @@ assets\app.ico
 这些都在运行后生成或下载，默认位置：
 
 ```text
-%APPDATA%\NLCL
+%APPDATA%\NLMCL
 ```
 
 ### 游戏目录
@@ -259,7 +259,7 @@ assets\app.ico
 
 如果资源管理器还显示旧图标：
 
-1. 关闭所有 NLCL 窗口
+1. 关闭所有 NLMCL 窗口
 2. `Win + R` 输入 `ie4uinit.exe -show`
 3. 或重启资源管理器
 4. 或把 exe 复制到另一个目录看
@@ -295,7 +295,7 @@ Sign in to GitHub.com
 2. `Repository name` 填：
 
 ```text
-NLCL
+NLMCL
 ```
 
 3. 选择 `Public`（公开）或 `Private`（私有）
@@ -304,7 +304,7 @@ NLCL
 6. 页面会显示仓库地址，例如：
 
 ```text
-https://github.com/你的用户名/NLCL.git
+https://github.com/你的用户名/NLMCL.git
 ```
 
 先不要关页面。
@@ -316,7 +316,7 @@ https://github.com/你的用户名/NLCL.git
 3. `Local path` 选择：
 
 ```text
-D:\Users\zyh\Desktop\NLCL
+D:\Users\zyh\Desktop\NLMCL
 ```
 
 4. 点 `Add repository`
@@ -335,7 +335,7 @@ create a repository
 1. `Summary` 填：
 
 ```text
-feat: NLCL launcher v1.0
+feat: NLMCL launcher v1.0
 ```
 
 2. 点 `Commit to main`
@@ -348,7 +348,7 @@ feat: NLCL launcher v1.0
 Publish repository
 ```
 
-- `Name` 保持 `NLCL`
+- `Name` 保持 `NLMCL`
 - 不要勾选 `Keep this code private`（如果要公开）
 - 点 `Publish repository`
 
@@ -390,7 +390,7 @@ git --version
 #### 2. 进入项目目录
 
 ```powershell
-cd "D:\Users\zyh\Desktop\NLCL"
+cd "D:\Users\zyh\Desktop\NLMCL"
 ```
 
 #### 3. 第一次使用 Git，设置名字和邮箱
@@ -429,7 +429,7 @@ git status
 
 ```powershell
 git add .
-git commit -m "feat: NLCL launcher v1.0"
+git commit -m "feat: NLMCL launcher v1.0"
 ```
 
 #### 7. 连接 GitHub 仓库
@@ -437,13 +437,13 @@ git commit -m "feat: NLCL launcher v1.0"
 把下面地址换成你自己的：
 
 ```powershell
-git remote add origin https://github.com/你的用户名/NLCL.git
+git remote add origin https://github.com/你的用户名/NLMCL.git
 ```
 
 如果提示 `remote origin already exists`，改用：
 
 ```powershell
-git remote set-url origin https://github.com/你的用户名/NLCL.git
+git remote set-url origin https://github.com/你的用户名/NLMCL.git
 ```
 
 #### 8. 推送
@@ -474,7 +474,7 @@ git push
 浏览器打开：
 
 ```text
-https://github.com/你的用户名/NLCL
+https://github.com/你的用户名/NLMCL
 ```
 
 ### 2. 进入 Releases
@@ -488,7 +488,7 @@ Releases
 点它；如果没有，直接打开：
 
 ```text
-https://github.com/你的用户名/NLCL/releases
+https://github.com/你的用户名/NLMCL/releases
 ```
 
 ### 3. 新建 Release
@@ -516,13 +516,13 @@ Create new tag: v1.0.0 on publish
 `Release title`：
 
 ```text
-NLCL v1.0.0
+NLMCL v1.0.0
 ```
 
 `Describe this release` 可以复制：
 
 ```markdown
-## NLCL v1.0.0
+## NLMCL v1.0.0
 
 轻量化 Minecraft Java 启动器。
 
@@ -539,7 +539,7 @@ NLCL v1.0.0
 - 全局等比缩放布局
 
 ### 使用方法
-1. 下载 `NLCL.exe`
+1. 下载 `NLMCL.exe`
 2. 放到任意文件夹
 3. 双击运行
 4. 首次启动会检查并在线下载所需 Java / 游戏文件
@@ -562,7 +562,7 @@ selecting them
 选择：
 
 ```text
-D:\Users\zyh\Desktop\NLCL\dist\NLCL.exe
+D:\Users\zyh\Desktop\NLMCL\dist\NLMCL.exe
 ```
 
 等待上传完成。
@@ -570,7 +570,7 @@ D:\Users\zyh\Desktop\NLCL\dist\NLCL.exe
 可选：同时上传：
 
 ```text
-D:\Users\zyh\Desktop\NLCL\dist\SHA256.txt
+D:\Users\zyh\Desktop\NLMCL\dist\SHA256.txt
 ```
 
 它是 exe 的 SHA256 校验值，用户下载后可以核对文件是否完整。
@@ -588,17 +588,17 @@ Publish release
 发布成功后打开：
 
 ```text
-https://github.com/你的用户名/NLCL/releases
+https://github.com/你的用户名/NLMCL/releases
 ```
 
 应该能看到：
 
 ```text
-NLCL v1.0.0
-NLCL.exe
+NLMCL v1.0.0
+NLMCL.exe
 ```
 
-点一下 `NLCL.exe`，确认可以下载。
+点一下 `NLMCL.exe`，确认可以下载。
 
 ---
 
@@ -615,7 +615,7 @@ NLCL.exe
 3. 输入：
 
 ```bat
-cd /d "D:\Users\zyh\Desktop\NLCL"
+cd /d "D:\Users\zyh\Desktop\NLMCL"
 build.bat
 ```
 
@@ -678,10 +678,10 @@ build.bat
 6. 如果源码正常、exe 白屏，重新打包；仍失败时做调试版：
 
 ```bat
-.venv\Scripts\flet.exe pack main.py --name NLCL-debug --icon assets\app.ico --add-data "assets;assets" --debug-console 1 -y
+.venv\Scripts\flet.exe pack main.py --name NLMCL-debug --icon assets\app.ico --add-data "assets;assets" --debug-console 1 -y
 ```
 
-运行 `dist\NLCL-debug.exe`，把黑色窗口里的报错发出来。
+运行 `dist\NLMCL-debug.exe`，把黑色窗口里的报错发出来。
 
 ### 6. 提示 “Could not create temporary directory!”
 
@@ -702,7 +702,7 @@ C:\Users\你的用户名\AppData\Local\Temp
 6. 如果仍然不行，用源码运行，或改为目录版打包：
 
 ```bat
-.venv\Scripts\flet.exe pack main.py --name NLCL --icon assets\app.ico --add-data "assets;assets" -D -y
+.venv\Scripts\flet.exe pack main.py --name NLMCL --icon assets\app.ico --add-data "assets;assets" -D -y
 ```
 
 ### 7. 提示找不到 `assets/steve.png`
@@ -727,7 +727,7 @@ PyInstaller 单文件 exe 被误报很常见，不代表有病毒。
 2. 添加排除项：
 
 ```text
-D:\Users\zyh\Desktop\NLCL\dist
+D:\Users\zyh\Desktop\NLMCL\dist
 ```
 
 3. 重新打包
@@ -765,7 +765,7 @@ D:\Users\zyh\Desktop\NLCL\dist
 ```bat
 rmdir /s /q build
 rmdir /s /q dist
-del /q NLCL.spec
+del /q NLMCL.spec
 ```
 
 然后重新双击 `一键打包.bat`。
@@ -780,7 +780,7 @@ Flet 桌面运行器本身较大，单文件 100MB 左右是正常的。
 "%FLET%" pack main.py ... -D
 ```
 
-但这样发布时需要把整个 `dist\NLCL` 文件夹压缩成 zip，不是单文件。
+但这样发布时需要把整个 `dist\NLMCL` 文件夹压缩成 zip，不是单文件。
 
 本项目默认坚持单文件 exe。
 
@@ -802,7 +802,7 @@ Flet 桌面运行器本身较大，单文件 100MB 左右是正常的。
 执行：
 
 ```powershell
-git remote set-url origin https://github.com/你的用户名/NLCL.git
+git remote set-url origin https://github.com/你的用户名/NLMCL.git
 git push -u origin main
 ```
 
@@ -893,7 +893,7 @@ exe 通常几十到一百多 MB，浏览器上传需要时间。
 ## 十、发布前检查清单
 
 - [ ] 双击 `一键打包.bat` 成功
-- [ ] `dist\NLCL.exe` 存在
+- [ ] `dist\NLMCL.exe` 存在
 - [ ] 双击 exe 能打开
 - [ ] 版本列表能扫描
 - [ ] 账号头像正常
@@ -902,7 +902,7 @@ exe 通常几十到一百多 MB，浏览器上传需要时间。
 - [ ] 杀毒软件没有删除 exe
 - [ ] README 已更新
 - [ ] 代码已 push 到 GitHub main
-- [ ] Release 已上传 `NLCL.exe`
+- [ ] Release 已上传 `NLMCL.exe`
 - [ ] 下载链接可以打开
 
 ---
@@ -914,7 +914,7 @@ exe 通常几十到一百多 MB，浏览器上传需要时间。
 - 修改代码
 - 创建打包脚本
 - 在本机执行 PyInstaller
-- 生成 `dist\NLCL.exe`
+- 生成 `dist\NLMCL.exe`
 - 写 README 和教程
 
 我不能：
@@ -927,4 +927,4 @@ exe 通常几十到一百多 MB，浏览器上传需要时间。
 所以最后只有两步需要你亲手做：
 
 1. 按第七节把代码推到 GitHub
-2. 按第八节在网页上传 `NLCL.exe`
+2. 按第八节在网页上传 `NLMCL.exe`

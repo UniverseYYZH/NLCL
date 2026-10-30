@@ -35,7 +35,7 @@ class Snapshot:
 def default_snapshot_root() -> Path:
     base = os.environ.get("APPDATA")
     root = Path(base) if base else Path.home() / "AppData" / "Roaming"
-    return root / "NLCL" / "snapshots"
+    return root / "NLMCL" / "snapshots"
 
 
 class SnapshotManager:

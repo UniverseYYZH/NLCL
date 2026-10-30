@@ -22,7 +22,7 @@ from launch_settings import JavaInfo
 from version_scanner import LocalVersion
 
 DEFAULT_TIMEOUT = 15
-USER_AGENT = "NLCL/0.8"
+USER_AGENT = "NLMCL/0.8"
 
 # Mojang 官方 JVM 运行时组件。Java 25 使用 epsilon。
 JAVA_COMPONENTS: dict[int, str] = {

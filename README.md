@@ -1,4 +1,4 @@
-# NLCL
+# NLMCL
 
 轻量化 Minecraft Java 启动器，使用 Python + Flet，Windows 优先。
 
@@ -54,7 +54,7 @@
 如果只是使用启动器，不需要安装 Python：
 
 1. 打开本项目的 **Releases** 页面
-2. 下载最新的 `NLCL.exe`
+2. 下载最新的 `NLMCL.exe`
 3. 放到任意文件夹
 4. 双击运行
 
@@ -112,13 +112,13 @@ python -m venv .venv
 
 ```text
 BUILD SUCCESS
-EXE: D:\Users\zyh\Desktop\NLCL\dist\NLCL.exe
+EXE: D:\Users\zyh\Desktop\NLMCL\dist\NLMCL.exe
 ```
 
 最终文件：
 
 ```text
-dist\NLCL.exe
+dist\NLMCL.exe
 ```
 
 已实际打包并运行验证：
@@ -181,7 +181,7 @@ flet-cli==0.28.3
 用 `cmd` 打开项目目录再运行：
 
 ```bat
-cd /d "D:\Users\zyh\Desktop\NLCL"
+cd /d "D:\Users\zyh\Desktop\NLMCL"
 build.bat
 ```
 
@@ -218,7 +218,7 @@ PyInstaller 单文件程序常被误报，不代表有病毒。
 
 ### 图标不更新
 
-关闭所有 NLCL 窗口，然后：
+关闭所有 NLMCL 窗口，然后：
 
 ```bat
 ie4uinit.exe -show
@@ -293,13 +293,13 @@ ie4uinit.exe -show
 - 可以保存多个账号，点击「已保存账号」中的条目切换当前账号。
 - 「登出当前账号」会从 JSON 中删除该账号及其 token，并自动切换到下一个账号。
 - 重启启动器后自动恢复上次的当前账号，不需要重新登录。
-- 账号文件：`%APPDATA%\NLCL\accounts.json`。
+- 账号文件：`%APPDATA%\NLMCL\accounts.json`。
 
 > 账号文件保存了微软账号的 access_token / refresh_token，属于本机私密数据，不要提交到版本库或发给别人。
 >
 > 保存逻辑兼容 Windows Store/MSIX 版 Python 的 AppData 重定向，不会使用跨盘 rename；如果上次写入中断，启动时会尝试从 `accounts.json.tmp` 恢复。
 >
-> `minecraft-launcher-lib 8.0` 本身没有暴露 device code API，因此设备码请求与轮询按 Microsoft 官方协议实现，后续 Xbox Live / XSTS / Minecraft 接口与 minecraft-launcher-lib 一致。默认使用 mcauth3 提供的公开 device-code 客户端 ID，可通过环境变量 `NLCL_MS_CLIENT_ID` 替换为自己的 Azure 公共客户端。启动器不会接触或保存微软密码。
+> `minecraft-launcher-lib 8.0` 本身没有暴露 device code API，因此设备码请求与轮询按 Microsoft 官方协议实现，后续 Xbox Live / XSTS / Minecraft 接口与 minecraft-launcher-lib 一致。默认使用 mcauth3 提供的公开 device-code 客户端 ID，可通过环境变量 `NLMCL_MS_CLIENT_ID` 替换为自己的 Azure 公共客户端。启动器不会接触或保存微软密码。
 
 ### Java 与启动设置
 
@@ -311,7 +311,7 @@ ie4uinit.exe -show
   - 校验失败时显示实际检测到的版本，不阻塞界面。
 - 最小内存和最大内存分别用滑块设置，范围 512 MB - 32 GB；最小内存不会超过最大内存。
 - 自定义 JVM 参数以原始字符串保存，供后续启动模块拼接使用。
-- 「保存设置」写入 `%APPDATA%\NLCL\launch_settings.json`。
+- 「保存设置」写入 `%APPDATA%\NLMCL\launch_settings.json`。
 
 > 配置文件结构包含 `java.path/version/major`、`memory.min_mb/max_mb` 和 `jvm_args`。写文件同样兼容 Windows Store/MSIX 的 AppData 重定向。
 
@@ -329,7 +329,7 @@ ie4uinit.exe -show
 - 启动前自动准备缺失的 Windows natives（`lwjgl.dll` 等）。
 - 通过 `minecraft-launcher-lib` 的 `get_minecraft_command()` 构建命令，带入 Java 路径、最小/最大内存和自定义 JVM 参数。
 - 日志按实例隔离，实时显示；支持：
-  - 「导出日志」：一键写入 `%APPDATA%\NLCL\logs\NLCL-<版本>-<时间>.log`；
+  - 「导出日志」：一键写入 `%APPDATA%\NLMCL\logs\NLMCL-<版本>-<时间>.log`；
   - 「清空日志」；
   - 「停止」当前实例。
 - **实例结束后**：进程退出会自动标记为「已退出/已停止/失败」，日志卡片保留可回看；每条已结束实例右侧出现小 ×，也可以选中后点「移除记录」。运行中的实例禁止移除。
@@ -364,7 +364,7 @@ ie4uinit.exe -show
   - 游戏版本；
   - 在线玩家 / 最大玩家；
   - 端口与地址。
-- 支持收藏/取消收藏，收藏写入 `%APPDATA%\NLCL\lan_favorites.json`。
+- 支持收藏/取消收藏，收藏写入 `%APPDATA%\NLMCL\lan_favorites.json`。
 - 每个房间支持「加入」：匹配本地版本后启动新实例并直连。
 - 每个房间支持生成二维码；二维码内容就是 `ip:port`，手机扫码后可直接复制地址。
 - 扫描在后台线程运行，界面不阻塞；失败原因显示在状态栏。
@@ -383,7 +383,7 @@ ie4uinit.exe -show
   - 下载 Mojang 对应运行时；
   - 校验 `java -version`；
   - 把 Java 路径绑定到该版本（实例级）。
-- 绑定写入 `%APPDATA%\NLCL\instance_java.json`，不会修改其他版本，也不会覆盖全局 Java 设置。
+- 绑定写入 `%APPDATA%\NLMCL\instance_java.json`，不会修改其他版本，也不会覆盖全局 Java 设置。
 - 启动时控制器优先使用实例绑定 Java；没有绑定才使用全局设置。
 - 「下载并绑定」复用版本下载页的 Mojang 运行时下载/重试逻辑。
 
@@ -397,7 +397,7 @@ ie4uinit.exe -show
 - 不备份 mods、客户端 JAR、资源文件，因此体积小；不是完整整合包导出。
 - 支持备注、快照列表、文件数/体积展示。
 - 回滚前自动创建 `auto-` 保护快照，再替换当前三个路径。
-- 快照目录：`%APPDATA%\NLCL\snapshots`。
+- 快照目录：`%APPDATA%\NLMCL\snapshots`。
 
 ### 日志语义标签
 
@@ -417,7 +417,7 @@ ie4uinit.exe -show
   - 普通 `.jar`：选择目标实例后复制到该实例的 `mods`；
   - Fabric/Forge 安装器 jar：识别后提供加载器安装选项；
   - Modrinth `.mrpack` / 整合包 `.zip`：解析 `modrinth.index.json`，创建独立 `.minecraft` 实例根目录，安装匹配加载器/Java，下载 mods、部署 overrides，并注册到启动列表。
-- 独立实例位于 `%APPDATA%\NLCL\instances`，通过注册表加入启动页版本列表。
+- 独立实例位于 `%APPDATA%\NLMCL\instances`，通过注册表加入启动页版本列表。
 - 代码包含 Windows `DragAcceptFiles + WM_DROPFILES` 原生拖拽尝试；由于 Flet 0.28 桌面运行器把窗口放在独立进程，原生 drop 事件不一定能转发到 Python。无论是否可用，都可以通过「导入资源」文件选择器完成同一套导入流程。
 
 > Modrinth 导入会下载整合包列出的文件，可能较大；请确保网络和磁盘空间充足。
@@ -436,7 +436,7 @@ ie4uinit.exe -show
 - 最大缩放限制为 **3.0 倍**；最小缩放 0.35，避免高 DPI 下无限缩小。
 - 窗口放大后，启动、首次扫描完成、`on_resized` 时都会重新计算并应用比例。
 - 版本列表仍在内部滚动，条目位置和间距比例不变。
-- 账号卡仍固定在侧栏 NLCL 标题下方、工作区标签上方。
+- 账号卡仍固定在侧栏 NLMCL 标题下方、工作区标签上方。
 - 账号、皮肤、下载、版本详情等弹窗也通过 `Page.open` 包装应用当前比例。
 
 ![950×500 最小窗口](docs/min-window-preview.png)
@@ -448,14 +448,14 @@ ie4uinit.exe -show
   - 浅色
   - 柔和灰绿（默认）
 - 设置页切换后立即重建界面颜色。
-- 主题写入 `%APPDATA%\NLCL\ui_theme.json`，启动时自动应用。
+- 主题写入 `%APPDATA%\NLMCL\ui_theme.json`，启动时自动应用。
 - 下载、账号、皮肤、启动、联机、快照、导入等已加载 UI 模块的颜色会在切换时同步热替换，重新打开的弹窗也使用新主题。
 
 ![深色主题](docs/theme-dark-preview.png)
 
 ### 账号侧栏入口与皮肤管理
 
-- 账号组件位于左侧侧栏顶端（NLCL 标题下方、工作区标签上方），显示皮肤头像、名称和账号类型。
+- 账号组件位于左侧侧栏顶端（NLMCL 标题下方、工作区标签上方），显示皮肤头像、名称和账号类型。
 - 头像规则：
   - **微软正版账号**：优先读取 `skin_url` 对应的官方皮肤；首次在后台预取并缓存，避免阻塞 UI；
   - **离线账号**：优先使用该账号上次选用的本地皮肤；
@@ -467,7 +467,7 @@ ie4uinit.exe -show
   - 每个账号独立记录上次选用的皮肤；
   - 完整皮肤预览和 2D 头像吸附预览；
   - 微软账号仍以官方皮肤为头像优先，离线账号使用本地皮肤。
-- 皮肤文件位于 `%APPDATA%\NLCL\skins`。
+- 皮肤文件位于 `%APPDATA%\NLMCL\skins`。
 
 ![皮肤管理](docs/skin-preview.png)
 
@@ -482,7 +482,7 @@ ie4uinit.exe -show
 - 日志最大保留行数、自动滚动；
 - 账号管理和皮肤管理入口。
 
-设置写入 `%APPDATA%\NLCL\app_settings.json`；Java/内存继续使用原 `launch_settings.json`。
+设置写入 `%APPDATA%\NLMCL\app_settings.json`；Java/内存继续使用原 `launch_settings.json`。
 
 ![独立设置页](docs/settings-preview.png)
 
@@ -545,7 +545,7 @@ ie4uinit.exe -show
 | `test_app_settings.py` | 设置持久化与下载限速测试 |
 | `requirements.txt` | 运行依赖（Flet、minecraft-launcher-lib、requests、segno、Pillow） |
 | `requirements-build.txt` | 打包依赖（PyInstaller、flet-cli） |
-| `dist/NLCL.exe` | 本次已构建的单文件程序（不上传源码仓库） |
+| `dist/NLMCL.exe` | 本次已构建的单文件程序（不上传源码仓库） |
 | `dist/SHA256.txt` | 当前 exe 的 SHA256 校验值 |
 | `build.bat` | 一键打包实际执行脚本 |
 | `一键打包.bat` | 双击入口，调用 build.bat |

@@ -8,7 +8,7 @@ set "PY=%VENV%\Scripts\python.exe"
 set "FLET=%VENV%\Scripts\flet.exe"
 
 echo ============================================================
-echo  NLCL one-click build
+echo  NLMCL one-click build
 echo  Project: %~dp0
 echo ============================================================
 echo.
@@ -48,21 +48,21 @@ echo.
 echo [5/6] Cleaning old build output...
 if exist build rmdir /s /q build
 if exist dist rmdir /s /q dist
-if exist NLCL.spec del /q NLCL.spec
+if exist NLMCL.spec del /q NLMCL.spec
 
 echo.
 echo [6/6] Packaging with PyInstaller via flet pack...
 echo       This can take several minutes. Do not close this window.
 "%FLET%" pack main.py ^
-  --name NLCL ^
+  --name NLMCL ^
   --icon "assets\app.ico" ^
   --add-data "assets;assets" ^
-  --product-name "NLCL" ^
-  --file-description "NLCL - lightweight Minecraft Java launcher" ^
+  --product-name "NLMCL" ^
+  --file-description "NLMCL - lightweight Minecraft Java launcher" ^
   --product-version "1.0.0" ^
   --file-version "1.0.0.0" ^
-  --company-name "NLCL" ^
-  --copyright "NLCL" ^
+  --company-name "NLMCL" ^
+  --copyright "NLMCL" ^
   --hidden-import PIL ^
   --hidden-import requests ^
   --hidden-import urllib3 ^
@@ -71,21 +71,21 @@ echo       This can take several minutes. Do not close this window.
   -y
 if errorlevel 1 goto :fail
 
-if not exist "dist\NLCL.exe" (
+if not exist "dist\NLMCL.exe" (
     echo.
-    echo [ERROR] dist\NLCL.exe was not created.
+    echo [ERROR] dist\NLMCL.exe was not created.
     goto :fail
 )
 
 echo.
 echo ============================================================
 echo  BUILD SUCCESS
-echo  EXE: %~dp0dist\NLCL.exe
+echo  EXE: %~dp0dist\NLMCL.exe
 echo ============================================================
 echo.
 echo Next steps:
-echo   1. Double-click dist\NLCL.exe and test it.
-echo   2. Upload NLCL.exe to GitHub Releases (see README).
+echo   1. Double-click dist\NLMCL.exe and test it.
+echo   2. Upload NLMCL.exe to GitHub Releases (see README).
 echo.
 pause
 endlocal

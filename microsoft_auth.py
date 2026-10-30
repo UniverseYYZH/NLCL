@@ -21,10 +21,10 @@ from dataclasses import dataclass, field
 import requests
 
 # mcauth3 内置的公共 device-code 客户端 ID，专用于公开的设备码登录场景。
-# 可通过环境变量 NLCL_MS_CLIENT_ID 替换为自己在 Azure 注册的公共客户端。
+# 可通过环境变量 NLMCL_MS_CLIENT_ID 替换为自己在 Azure 注册的公共客户端。
 PUBLIC_DEVICE_CLIENT_ID = "4a07b708-b86d-4365-a55f-f4f23ecb85ab"
 MICROSOFT_CLIENT_ID = os.environ.get(
-    "NLCL_MS_CLIENT_ID",
+    "NLMCL_MS_CLIENT_ID",
     PUBLIC_DEVICE_CLIENT_ID,
 )
 

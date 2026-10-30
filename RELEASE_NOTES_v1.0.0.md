@@ -1,4 +1,4 @@
-# NLCL v1.0.0
+# NLMCL v1.0.0
 
 轻量化 Minecraft Java 启动器，Windows 单文件版。
 
@@ -21,14 +21,14 @@
 下载本页附件：
 
 ```text
-NLCL.exe
+NLMCL.exe
 ```
 
 放到任意文件夹，双击运行。
 
 ## 使用说明
 
-1. 首次启动会在 `%APPDATA%\NLCL` 创建配置目录。
+1. 首次启动会在 `%APPDATA%\NLMCL` 创建配置目录。
 2. 在设置页选择 Java 路径、下载目录、主题和日志选项。
 3. 点击“扫描版本”读取本地 `.minecraft`。
 4. 选择版本后点击“启动游戏”；未安装游戏/Java 时使用“版本下载”。

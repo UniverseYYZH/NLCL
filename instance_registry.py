@@ -1,4 +1,4 @@
-"""NLCL 独立实例注册表：Modrinth 整合包导入后的实例根目录。"""
+"""NLMCL 独立实例注册表：Modrinth 整合包导入后的实例根目录。"""
 
 from __future__ import annotations
 
@@ -11,7 +11,7 @@ from pathlib import Path
 def default_registry_file() -> Path:
     base = os.environ.get("APPDATA")
     root = Path(base) if base else Path.home() / "AppData" / "Roaming"
-    return root / "NLCL" / "instances" / "instances.json"
+    return root / "NLMCL" / "instances" / "instances.json"
 
 
 class InstanceRegistry:

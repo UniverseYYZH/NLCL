@@ -363,7 +363,7 @@ def build_minecraft_command(
         "token": minecraft_token or "0",
         "executablePath": java_path,
         "jvmArguments": jvm_arguments,
-        "launcherName": "NLCL",
+        "launcherName": "NLMCL",
         "launcherVersion": "0.5",
         "gameDirectory": str(minecraft_directory),
     }

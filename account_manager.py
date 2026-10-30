@@ -1,7 +1,7 @@
 """账号数据模型与 JSON 持久化。
 
 账号文件默认位置：
-    %APPDATA%\\NLCL\\accounts.json
+    %APPDATA%\\NLMCL\\accounts.json
 
 文件中会保存微软账号的 access_token / refresh_token。文件是本机私密数据，
 不要把 accounts.json 提交到版本库或发给别人。
@@ -111,7 +111,7 @@ class AccountState:
 def default_accounts_path() -> Path:
     appdata = os.environ.get("APPDATA")
     if appdata:
-        return Path(appdata) / "NLCL" / "accounts.json"
+        return Path(appdata) / "NLMCL" / "accounts.json"
     return Path.home() / ".nlcl" / "accounts.json"
 
 

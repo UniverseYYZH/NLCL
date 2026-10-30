@@ -1,4 +1,4 @@
-"""NLCL 全局配色主题：三套主题、持久化与已加载 UI 模块热替换。"""
+"""NLMCL 全局配色主题：三套主题、持久化与已加载 UI 模块热替换。"""
 
 from __future__ import annotations
 
@@ -126,7 +126,7 @@ _UI_MODULES = {
 def default_theme_path() -> Path:
     base = os.environ.get("APPDATA")
     root = Path(base) if base else Path.home() / "AppData" / "Roaming"
-    return root / "NLCL" / "ui_theme.json"
+    return root / "NLMCL" / "ui_theme.json"
 
 
 class ThemeStore:

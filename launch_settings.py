@@ -62,7 +62,7 @@ class JavaInfo:
 def default_launch_settings_path() -> Path:
     appdata = os.environ.get("APPDATA")
     if appdata:
-        return Path(appdata) / "NLCL" / "launch_settings.json"
+        return Path(appdata) / "NLMCL" / "launch_settings.json"
     return Path.home() / ".nlcl" / "launch_settings.json"
 
 
@@ -123,7 +123,7 @@ def validate_java_17(java_path: str) -> JavaInfo:
 class LaunchSettingsStore:
     """启动设置 JSON 存储。
 
-    默认路径：%APPDATA%\\NLCL\\launch_settings.json
+    默认路径：%APPDATA%\\NLMCL\\launch_settings.json
     """
 
     def __init__(self, path: str | Path | None = None) -> None:

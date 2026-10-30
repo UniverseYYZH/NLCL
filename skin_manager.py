@@ -20,7 +20,7 @@ from account_manager import Account
 def default_skin_root() -> Path:
     base = os.environ.get("APPDATA")
     root = Path(base) if base else Path.home() / "AppData" / "Roaming"
-    return root / "NLCL" / "skins"
+    return root / "NLMCL" / "skins"
 
 
 @dataclass(frozen=True, slots=True)

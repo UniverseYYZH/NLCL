@@ -81,7 +81,7 @@ class ImportTest(unittest.TestCase):
         with self.assertRaises(Exception):
             _safe_target(self.root, "../outside.txt")
         registry = InstanceRegistry(self.root / "instances.json")
-        entry = registry.add("Pack", self.root / ".minecraft", "NLCL-pack")
+        entry = registry.add("Pack", self.root / ".minecraft", "NLMCL-pack")
         self.assertEqual(registry.items[0]["id"], entry["id"])
 
     def test_java_binding_store(self) -> None:
@@ -100,11 +100,11 @@ class ImportTest(unittest.TestCase):
             json.dumps({"id": "fabric-loader-1.20.1", "inheritsFrom": "1.20.1"}),
             encoding="utf-8",
         )
-        _rename_version(self.root, "fabric-loader-1.20.1", "NLCL-pack", "My Pack")
-        target = self.root / "versions" / "NLCL-pack"
-        self.assertTrue((target / "NLCL-pack.json").is_file())
+        _rename_version(self.root, "fabric-loader-1.20.1", "NLMCL-pack", "My Pack")
+        target = self.root / "versions" / "NLMCL-pack"
+        self.assertTrue((target / "NLMCL-pack.json").is_file())
         self.assertEqual(
-            json.loads((target / "NLCL-pack.json").read_text(encoding="utf-8"))["id"],
+            json.loads((target / "NLMCL-pack.json").read_text(encoding="utf-8"))["id"],
             "My Pack",
         )
 

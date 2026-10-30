@@ -45,7 +45,7 @@ class LanRoom:
 def default_favorites_file() -> Path:
     base = os.environ.get("APPDATA")
     root = Path(base) if base else Path.home() / "AppData" / "Roaming"
-    return root / "NLCL" / "lan_favorites.json"
+    return root / "NLMCL" / "lan_favorites.json"
 
 
 class LanFavorites:
